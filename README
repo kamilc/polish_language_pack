@@ -1,0 +1,9 @@
+Polish language pack for Radiant CMS
+
+For it to work for you - put it in vendor/extensions directory
+and in environment.rb file add following line:
+
+    config.i18n.default_locale = :pl
+
+Any questiones?
+Mail me at: ciemniewski.kamil@gmail.com
