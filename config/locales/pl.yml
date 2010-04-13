@@ -1,0 +1,184 @@
+---
+pl:
+  account: 'Konto'
+  activerecord:
+    errors:
+      messages:
+        blank: 'wymagane' # required
+        invalid: 'nieprawidłowy format' #invalid_format
+        not_a_number: 'musi być liczbą' # must be number
+        taken: 'nazwa zajęta' # name_in_use
+        too_long: 'Limit znaków: {{count}}' # character_limit
+        too_short: 'Minimum znaków: {{count}}' # character_minimum
+      models:
+        page:
+          attributes:
+            slug:
+              taken: 'Slug zajęty' # slug_in_use
+        user:
+          attributes:
+            email:
+              invalid: 'Nieprawidłowy adres email' # invalid_email
+            login:
+              taken: 'Login zajęty' # login already in use
+            password:
+              confirmation: 'Potwierdź hasło' # password_confirmation
+  add_child: 'Nowa podstrona'
+  add_part: 'Nowa część'
+  add_tab: 'Dodaj zakładkę'
+  admin: 'Administrator' 
+  available_tags: 'Dostępne tagi'
+  available_tags_for: 'Dostępne tagi dla {{name}}'
+  body: 'Główne'
+  breadcrumb: 'Ścieżka'
+  buttons:
+    create: 'Utwórz {{name}}'
+    save_and_continue: 'Zapisz i kontunuuj edycję'
+    save_changes: 'Zapisz'
+  cancel: 'Anuluj'
+  change: 'Zmień'
+  close: 'Zamknij'
+  content: 'Zawartość'
+  content_type: 'Rodzaj zawartości'
+  creating_status: 'Tworzenie {{model}}&#8230;'
+  date:
+    abbr_day_names: [N, Pn, Wt, Śr, Cz, Pt, S]
+    abbr_month_names: [~, Sty, Lut, Mar, Kwi, Maj, Cze, Lip, Sie, Wrz, Paź, Lis, Gru]
+    day_names: [Niedziela, Poniedziałek, Wtorek, Środa, Czwartek, Piątek, Sobota]
+    formats:
+      default: "%d.%m.%Y"
+      long: "%e. %B %Y"
+      only_day: "%e"
+      short: "%e. %b"
+    month_names: [~, Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
+    order: [:day, :month, :year]
+  delete_layout: 'Usuń układ'
+  delete_pages: 'Usuń {{pages}}'
+  delete_snippet: 'Usuń cząstkę'
+  delete_user: 'Usuń użytkownika'
+  description: 'Opis'
+  design: 'Wygląd'
+  designer: 'Projektant'
+  draft: 'Szkic'
+  edit_layout: 'Edytuj układ'
+  edit_page:  'Edytuj stronę'
+  edit_snippet: 'Edytuj cząstkę'
+  edit_user: 'Edytuj użytkownika'
+  email_address: 'Adres e-mail'
+  extension: 'Rozszerzenie'
+  extensions: 'Rozszerzenia'
+  filter: 'Filtr'
+  hidden: 'Ukryte'
+  hide: 'Ukryj'
+  keywords: 'Słowa kluczowe'
+  language: 'Język'
+  layout: 'Układ'
+  layouts: 'Układy'
+  log_out: 'Wyloguj'
+  logged_in_as: 'Zalogowano jako'
+  login: 'Login'
+  modify: 'Modyfikuj'
+  more: 'Więcej'
+  name: 'Nazwa'
+  new_layout: 'Nowy układ'
+  new_page: 'Nowa strona'
+  new_password: 'Nowe hasło'
+  new_snippet: 'Nowa cząstka'
+  new_user: 'Nowy użytkownik'
+  no_pages: 'Brak stron'
+  notes: 'Notatki'
+  optional: 'Opcjonalne'
+  or: 'lub'
+  page: 'Strona'
+  page_page: 'Część strony'
+  page_title: 'Tytuł'
+  page_type: 'Typ strony'
+  pages: 'Strony'
+  pages_controller:
+    removed_many: "Strony zostały usuniętę z serwisu."
+    removed_one: "Strona została usunięta z serwisu."
+    saved: "Twoja strona została zapisana."
+  password: 'Hasło'
+  password_confirmation: 'Potwierdzenie hasła'
+  personal: 'Osobiste'
+  personal_preferences: 'Osobiste preferencje'
+  please_login: 'Zaloguj się'
+  powered_by: 'Powered by'
+  preferences: 'Preferencje'
+  preferences_controller:
+    error_updating: 'Wystąpił błąd podczas uaktualniania preferencji.'
+    updated: 'Twoje preferencje zostały uaktualnione.'
+  published: 'Opublikowano'
+  published_at: 'Opublikowano'
+  published_on: 'Opublikowano'
+  reference:  'Referencja'
+  remember_me: 'Zapamiętaj mnie'
+  remove: 'Usuń'
+  remove_layout: 'Usuń układ'
+  remove_page: 'Usuń stronę'
+  remove_pages: 'Usuń {{pages}}'
+  remove_tab: 'Usuń zakładkę'
+  remove_user: 'Usuń użytkownika'
+  required: 'Wymagane'
+  resource_controller:
+    not_found: "Nie można było znaleźć w systemie modelu: {{humanized_model_name}}."
+    removed: "Model {{humanized_model_name}} został usunięty."
+    saved: "Zapisano {{humanized_model_name}}."
+    update_conflict: "{{humanized_model_name}} został uaktualniony od czasu jego ostatniego otwarcia. Zmiany mogą potencjalnie spowodować utratę danych."
+    validation_errors: "Wykryto wprowadzenie nieprawidłowych danych. Proszę upewnij się że wprowadzasz dane poprawne."
+  reviewed: 'Przejrzane'
+  roles: 'Role'
+  saving_changes: Zapis zmain
+  saving_preferences: Zapis preferencji
+  scheduled: "Zaplanowano"
+  search_tags: 'Tagi wyszukiwania:'
+  select:
+    inherit: '<odziedzicz>'
+    none: '<brak>'
+    normal: '<normal>'
+    default: '<domyślne>'
+  settings: 'Ustawienia'
+  slug: 'Slug'
+  snippet: 'Cząstka'
+  snippets: 'Cząstki'
+  status: 'Status'    
+    # Warnings and info text:
+  testing: Testowanie
+  text:
+    layouts:
+      remove_warning: 'Czy jesteś pewien że chcesz <strong class="warning">permanentnie</strong> usunąć wybrany układ?'
+    pages: 
+      remove_warning: 'Czy jesteś pewien że chcesz <strong class="warning">permanentnie</strong> usunąć wybrany/e stronę/y?'
+    snippets:
+      remove_warning: 'Czy jesteś pewien że chcesz <strong class="warning">permanentnie</strong> usunąć wybraną cząstkę?'
+    users: 
+      remove_warning: 'Czy jesteś pewien że chcesz <strong class="warning">permanentnie</strong> usunąć wybranego użytkownika?'
+  this_file_language: "Polish"
+  time:
+    am: ""
+    formats:
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+      default: "%A, %e. %B %Y, %H:%M Uhr" 
+      long: "%A, %e. %B %Y, %H:%M Uhr"
+      only_second: "%S"
+      short: "%e.%m., %H:%M Uhr"
+      time: "%H:%M Uhr"
+      timestamp: "%H:%M am %d. %B, %Y"
+    pm: 'PM'
+  timestamp:
+    at: 'o'
+    by: 'przez'
+    last_updated: 'Ostatnia aktualizacja'
+  user: 'Użytkownik'
+  username: 'Nazwa użytkownika'
+  users: 'Użytkownicy'
+  users_controller:
+    cannot_delete_self: 'Nie możesz usunąć siebie.'
+  version: 'Wersja'
+  view_site: 'Strona'
+  website: 'Strona'
+  welcome_controller:
+    invalid_user: 'Nieprawidłowy użytkownik lub hasło.'
+    logged_out: 'Wylogowano.'

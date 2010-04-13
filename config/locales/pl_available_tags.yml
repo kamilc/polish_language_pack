@@ -1,0 +1,545 @@
+---
+pl:
+  desc: 
+    author:
+      Wyświetla autora bieżącej strony.
+  
+    breadcrumb:
+        Wyświetla atrybut @breadcrumb@ na bieżącej stronie.
+      
+    breadcrumbs:
+      Wyświetla ścieżkę nawigacyjną prowadzącą do aktualnie przeglądanej strony. Atrybut 'separator'
+      określa HTML wstawiany pomiędzy kolejnymi elementami ścieżki. Domyślnie ustawione jest na
+      @>@. Wartośc logiczna 'nolinks' może zostać ustawiona by wyświetlać ścieżkę tylko jako
+      tekst ( bez generowania linków ) ( Użyteczne np. przy generowaniu tytuły bieżącej strony ).
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;breadcrumbs [separator="separator_string"] [nolinks="true"] /></code></pre>
+  
+    children-count:
+      Wyświetla liczbę podelementów ( dzieci ).
+  
+    children-each-child:
+      Tagi odwołujące się do strony wewnątrz tego tagu odwołują się do aktualnego 'dziecka'. To jest okazjonalnie
+      użytecznie gdy jesteś wewnątrz innego tagu (jak np. &lt;r&#58;find&gt;) i chcesz odwołać się spowrotem do
+      aktualnego 'dziecka'.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;each>
+        <r&#58;child>...</r&#58;child>
+      </r&#58;children&#58;each>
+      </code></pre>
+  
+    children-each-header:
+      Wyświetla zawartość taga wtedy i tylko wtedy gdy zawartość nie pasuje do poprzedniego nagłówka.
+      To jest bardzo użyteczne przy wyświetlaniu nagłówków dat dla listy podstron ( 'dzieci' ).
+
+      Jeśli chcesz użyć wiele bloków nagłówków, możesz użyć atrybutu @name@ by nazwać nagłówek.
+      Gdy nagłówek jest nazwany, nie zostanie rozpoczęty na nowo dopóki kolejny nagłówek tej samej
+      nazwy jest różny.
+
+      Używając atrybutu @restart@, możesz sprawić że inne nagłówki zostaną rozpoczęte na nowo
+      gdy obecny nagłówek się zmieni.
+      Poprostu podaj nazwy innych nagłówków oddzielając je przecinkami.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;each>
+        <r&#58;header [name="header_name"] [restart="name1[;name2;...]"]>
+            ...
+        </r&#58;header>
+      </r&#58;children&#58;each>
+      </code></pre>
+  
+    children-each-if_first:
+      Wyświetla zawartość taga tylko wtedy gdy aktualna strona jest pierwszym dzieckiem
+      w kontekście tagu children&#58;each
+      
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;each>
+        <r&#58;if_first >
+            ...
+        </r&#58;if_first>
+      </r&#58;children&#58;each>
+      </code></pre>
+      
+  
+    children-each-if_last:
+      Wyświetla zawartość taga tylko wtedy gdy aktualna strona jest ostatnim dzieckiem
+      w kontekście tagu children&#58;each
+      
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;each>
+        <r&#58;if_last >
+            ...
+        </r&#58;if_last>
+      </r&#58;children&#58;each>
+      </code></pre>
+      
+  
+    children-each-unless_first:
+      Wyświetla zawartość taga tylko wtedy gdy aktualna strona nie jest pierwszym dzieckiem
+      w kontekście tagu children&#58;each
+      
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;each>
+        <r&#58;unless_first >
+            ...
+        </r&#58;unless_first>
+      </r&#58;children&#58;each>
+      </code></pre>
+      
+  
+    children-each-unless_last:
+      Wyświetla zawartość taga tylko wtedy gdy aktualna strona nie jest ostatnim dzieckiem
+      w kontekście tagu children&#58;each
+      
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;each>
+        <r&#58;unless_last >
+            ...
+        </r&#58;unless_last>
+      </r&#58;children&#58;each>
+      </code></pre>
+      
+  
+    children-each:
+      Przechodzi przez każde dziecko. Wewnątrz tego tagu wszelkie atrybuty i tagi
+      łączone są z aktualną stroną dziecka.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;each [offset="number"] [limit="number"]
+       [by="published_at|updated_at|created_at|slug|title|keywords|description"]
+       [order="asc|desc"] [status="draft|reviewed|published|hidden|all"]>
+       ...
+      </r&#58;children&#58;each>
+      </code></pre>
+  
+    children-first:
+      Zwraca pierwsze dziecko. Wewnątrz tego tagu wszelkie atrybuty i tagi
+      łączone są ze stroną pierwszego dziecka. Pobiera takie same opcje sortowania
+      jak @<r&#58;children&#58;each>@.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;first>...</r&#58;children&#58;first></code></pre>
+  
+    children-last:
+      Zwraca ostatnie dziecko. Wewnątrz tego tagu wszelkie atrybuty i tagi
+      łączone są ze stroną pierwszego dziecka. Pobiera takie same opcje sortowania
+      jak @<r&#58;children&#58;each>@.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children&#58;last>...</r&#58;children&#58;last></code></pre>
+  
+    children:
+      Daje dostep do podstron ( 'dzieci' ) aktualnej strony.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;children>...</r&#58;children></code></pre>
+  
+    comment:
+      Cokolwiek zawarte jest wewnątrz tego tagu - zostanie ominięte podczas wyświetlania 
+      strony. Służy do komentowania kodu.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;comment>...</r&#58;comment></code></pre>
+  
+    content:
+      Wyświetla główną zawartość danej strony. Użyj atrybutu @part@ aby wybrać
+      konkretną część strony. Domyślnie atrybut @part@ ustawiony jest na 'body'
+      ( zawartość główną ). Użyj atrybutu @inherit@ aby określić czy strona ma wyświetlać 
+      zawartość strony nadrzędnej w przypadku nie posiadania własnej zawartości.
+      Domyślnie @inherit@ ustawione jest na @false@. Użyj @contextual@ aby zmusić
+      część odziedziczoną ze strony nadrzędnej aby została zinterpretowana
+      w kontekście podstrony. Domyślnie atrybut @contextual@ ustawiony jest na @true@.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;content [part="part_name"] [inherit="true|false"] [contextual="true|false"] /></code></pre>
+  
+    cycle:
+      Wyświetla jedną z podanych wartości na podstawie globalnego licznika.
+      Użyj atrybutu @reset@ aby ustawić licznik od nowa na początku. Użyj
+      atrybutu @name@ aby zarządzać wieloma cyklami.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;cycle values="first, second, third" [reset="true|false"] [name="cycle"] /></code></pre>
+  
+    date:
+      Wyświetla datę aktualnej strony ( domyślnie datę utworzenia lub publikacji ).
+      Atrubyt @for@ określa datę do wyświetlenia. Prawidłowe wartości dla tego atrybutu to&#58;*
+      @published_at@ ( data opublikowania ), @created_at@ ( data utworzenia ),
+      @updated_at@ ( data modyfikacji ), and @now@ ( aktualna data ).
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;date [format="&#37;A, &#37;B &#37;d, &#37;Y"] [for="published_at"]/></code></pre>
+  
+    escape_html:
+      Pozwala wyświetlać znaki specjalne i tagi kodu HTML jako tekst.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;escape_html>...</r&#58;escape_html></code></pre>
+  
+    find:
+      Wewnątrz tego tagu wszelkie tagi odnoszą sie do strony znalezionej
+      pod adresem określonym atrybutem @url@. Atrybut @url@ może określać
+      adres relatywnie ( np. /onas - co znaczy http://twojastrona.pl/onas )
+      lub absolutnie ( np. http://twojastrona.pl/onas )
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;find url="value_to_find">...</r&#58;find></code></pre>
+  
+    if_ancestor_or_self:
+      Wyświetla zawarte elementy jeśli aktualna strona kontekstu jest albo aktualna stroną albo
+      jedną z jej podstron.
+      To jest zwykle używane wewnątrz innego taki ( jak np. &lt;r&#58;children&#58;each&gt; )
+      aby dodać warunkowa zawartość w zależności od tego czy podelement jest 'dzieckiem'
+      aktualnej strony.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;if_ancestor_or_self>...</r&#58;if_ancestor_or_self></code></pre>
+  
+    if_children:
+      Wyświetla podany element tylko wtedy gdy posiada on jedno lub więcej 'dzieci'.
+      Atrybut @status@ określa z jakim statusem 'dzieci' brane są pod uwagę.
+      Domyslnie określony jest na @"published"@. Wartość @"all"@ włącza
+      wszystkie podstrony niewirtualne.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;if_children [status="published"]>...</r&#58;if_children></code></pre>
+  
+    if_content:
+      Wyświetla zawarte elementy jeśli wszystkie z podanych części strony na niej
+      istnieją. Domyślnie atrybut @part@ ustawiony jest na @body@, ale możesz określić
+      więcej niż jedną część oddzielając je przecinkami. Określenie opcjonalnego
+      atrybutu @inherit@ na @true@ okresli wyszukiwanie stron nadrzednych
+      niezależnie.
+
+      Możesz podać również atrybut @find@ ustawiając go na wartość @any@ co spowoduje
+      wyświetlenie zawartych elementów jeśli którakolwiek z podanych części obecna
+      jest na stronie. Domyślnie atrubyt @find@ ustawiony jest na wartość @all@.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;if_content [part="part_name, other_part"] [inherit="true"] [find="any"]>...</r&#58;if_content></code></pre>
+  
+    if_dev:
+      Wyświetla zawarte elementy jeśli system znajduje się w trybie deweloperskim.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;if_dev>...</r&#58;if_dev></code></pre>
+  
+    if_parent:
+      Wyświetla zawarte elementy tylko wtedy gdy aktualna strona w kontekście posiada
+      rodzica ( nie jest stroną główną ).
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;if_parent>...</r&#58;if_parent></code></pre>
+  
+    if_self:
+      Wyświetla zawarte elementy jeśli aktualna strona w kontekście jest również
+      bieżącą stroną.
+
+      To jest użyte zazwyczaj wewnątrz innego tagu ( jak np. &lt;r&#58;children&#58;each&gt; ).
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;if_self>...</r&#58;if_self></code></pre>
+  
+    if_url:
+      Wyświetla zawarte elementy tylko wtedy gdy adres strony pasuje do podanego
+      atrybutem @matches@ wyrażenia regularnego.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;if_url matches="regexp" [ignore_case="true|false"]>...</r&#58;if_url></code></pre>
+  
+    link:
+      Wyświetla link do strony. Jeśli użyty jako tag pojedynczy ( samozamykający )
+      używa tytułu bieżącej strony jako nazwy dla tworzonego linku. Tag ten
+      'przekazuje' wszelkie podane mu atrybuty tworzonemu tagowi HTML @a@.
+      Jeśli atrybut @anchor@ zostaje podany - tag doda znak <code>#</code>.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;link [anchor="name"] [other attributes...] /></code></pre>
+      
+      lub
+      
+      <pre><code><r&#58;link [anchor="name"] [other attributes...]>tekst linku tutaj</r&#58;link></code></pre>
+  
+    markdown:
+      Filtruje zawartość filtrem Markdown.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;markdown>** pogrubienie **</r&#58;markdown></code></pre>
+
+      produces
+
+      <pre><code><strong> pogrubienie </strong></code></pre>
+  
+    meta-description:
+      Wpisuje tag meta z opisem strony jeśli atrybut @tag@ ustawiony jest na
+      @false@.
+
+      *Sposób użycia&#58;*
+
+      <pre><code> <r&#58;meta&#58;description [tag="false"] /> </code></pre>
+  
+    meta-keywords:
+      Wpisuje tag meta ze słowami kluczowymi strony jeśli atrybut @tag@ ustawiony
+      jest na @false@.
+
+      *Sposób użycia&#58;*
+
+      <pre><code> <r&#58;meta&#58;keywords [tag="false"] /> </code></pre>
+  
+    meta:
+      Strefa nazw dla atrybutów 'meta'. Jeśli użyty jako samodzielny tag, pola
+      'description' oraz 'keywords' zostaną wpisane jako tagi &lt;meta /&gt;
+      jeśli atrybut 'tag' jest ustawiony na 'false'.
+
+      *Sposób użycia&#58;*
+
+      <pre><code> <r&#58;meta [tag="false"] />
+       <r&#58;meta>
+         <r&#58;description [tag="false"] />
+         <r&#58;keywords [tag="false"] />
+       </r&#58;meta>
+      </code></pre>
+  
+    navigation-if_first:
+      Wyświetla zawarte elementy jeśli element jest pierwszy na liście nawigacji.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;normal><r&#58;if_first>...</r&#58;if_first></r&#58;normal></code></pre>
+  
+    navigation-if_last:
+      Wyświetla zawarte elementy jeśli element jest ostatni na liście nawigacji.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;normal><r&#58;if_last>...</r&#58;if_last></r&#58;normal></code></pre>
+  
+    navigation:
+      Wyświetla listę linków podanych atrybutem @urls@ oznaczonych trzema stanami
+
+      * @normal@ oznacza normalny stan linku
+      * @here@ oznacza stan linku prowadzącego do bieżącej strony
+      * @selected@ oznacza stan linku prowadzącego do dziecka bieżącej strony
+
+      Tag @between@ określa co powinno zostać wstawione pomiędzy linkami.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;navigation urls="[Title&#58; url | Title&#58; url | ...]">
+        <r&#58;normal><a href="<r&#58;url />"><r&#58;title /></a></r&#58;normal>
+        <r&#58;here><strong><r&#58;title /></strong></r&#58;here>
+        <r&#58;selected><strong><a href="<r&#58;url />"><r&#58;title /></a></strong></r&#58;selected>
+        <r&#58;between> | </r&#58;between>
+      </r&#58;navigation>
+      </code></pre>
+  
+    page:
+      Sprawia że tagi odwołujące się do atrybutów strony odwołują się do strony bieżącej.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;page>...</r&#58;page></code></pre>
+  
+    parent:
+      Sprawia że tagi odwołujące się do atrybutów strony odwołują się do rodzica strony bieżącej.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;parent>...</r&#58;parent></code></pre>
+  
+    random:
+      Losowo wyświetla jedną z opcji przekazanych tagami @option@.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;random>
+        <r&#58;option>...</r&#58;option>
+        <r&#58;option>...</r&#58;option>
+        ...
+      <r&#58;random>
+      </code></pre>
+  
+    rfc1123_date:
+      Wyświetla datę używając formatu określonego standartem RFC 1123 ( Idealny dla kanałów RSS )
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;rfc1123_date /></code></pre>
+  
+    slug:
+      Wyświetla atrybut @slug@ bieżącej strony.
+      
+    smarty_pants:
+      Filtruje zawartość filtrem SmartyPants.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;smarty_pants>"Rewolucyjny cytat."</r&#58;smarty_pants></code></pre>
+
+      daje w rezultacie
+
+      <pre><code>&#8220;Rewolucyjny cytat.&#8221;</code></pre>
+  
+    snippet:
+      Wyświetla cząstkę określoną atrybutem @name@ w kontekście bieżącej strony.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;snippet name="snippet_name" /></code></pre>
+
+      Gdy użyty jako tag zamknięty ( z częścią </r&#58;snippet> ), jego zawartość
+      zostanie użyta w miejsce @<r&#58;yield/>@ kodu cząstki.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;snippet name="snippet_name">Lorem ipsum dolor...</r&#58;snippet></code></pre>
+  
+    status:
+      Wyświetla status strony jako tekst. Opcjonalny atrybut 'downcase'
+      sprawia że status wypisywany jest małymi literami.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;status [downcase='true'] /></code></pre>
+  
+    textile:
+      Filtruje zawartość filtrem Textile.
+
+      *Sposób użycia*&#58;
+
+      <pre><code><r&#58;textile>
+      * Pierwszy
+      * Drugi
+      </r&#58;textile></code></pre>
+
+      produces&#58;
+
+      <pre><code><ul>
+        <li>Pierwszy</li>
+        <li>Drugi</li>
+      </ul></code></pre>
+  
+    title:
+      Wyświetla atrybut @title@ bieżącej strony.
+      
+    unless_ancestor_or_self:
+      Wyświetla zawarte elementy jeśli bieżąca strona w kontekście jest albo aktualnie
+      przeglądaną stroną lub jednym z jej rodziców.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;unless_ancestor_or_self>...</r&#58;unless_ancestor_or_self></code></pre>
+  
+    unless_children:
+      Wyświetla zawarte elementy tylko wtedy gdy bieżąca strona nie posiada podstron.
+      Artrybut @status@ określa status podstron branych pod uwagę podczas określania
+      obecności podstron bieżącej strony.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;unless_children [status="published"]>...</r&#58;unless_children></code></pre>
+  
+    unless_content:
+      Przeciwieństwo tagu @if_content@. Wyświetla zawartość tylko wtedy gdy podane
+      atrybutem @part@ części w bieżącej stronie nie istnieją. Atrybut @find@
+      określa tryb pracy tagu. Wartość @all@ oznacza że wszystkie części mają się
+      na stronie nie znajdować, podczas gdy wartość @any@ oznacza że obecność
+      którejkolwiek z części sprawi brak wyświetlenia zawartych elementów.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;unless_content [part="part_name, other_part"] [inherit="false"] [find="any"]>...</r&#58;unless_content></code></pre>
+  
+    unless_dev:
+      Przeciwieństwo tagu @if_dev@ wyświetlające zawartość wtedy i tylko wtedy gdy 
+      system **nie znajduje się** w trybie deweloperskim.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;unless_dev>...</r&#58;unless_dev></code></pre>
+  
+    unless_parent:
+      Wyświetla zawartość wtedy i tyko wtedy gdy bieżąca strona jest stroną główną
+      ( początkiem drzewa stron serwisu ).
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;unless_parent>...</r&#58;unless_parent></code></pre>
+  
+    unless_self:
+      Wuświetla zawartość wtedy i tylko wtedy gdy bieżąca strona kontekście nie jest
+      jednocześnie aktualnie przeglądaną stroną.
+
+      *Sposób użycia&#58;*
+
+      <pre><code><r&#58;unless_self>...</r&#58;unless_self></code></pre>
+  
+    unless_url:
+      Przeciwieństwo tagu @if_url@.
+
+      *Sposób użycia&#58;*
+      
+      <pre><code><r&#58;unless_url matches="regexp" [ignore_case="true|false"]>...</r&#58;unless_url></code></pre>
+  
+    url:
+      Wyświetla atrybut @url@ bieżącej strony.
+  
+    yield:
+      Używane w cząstkach jako zamiennik zawartości dziecka gdy użyta jest ona
+      wewnątrz kody strony używając wersji tagu z zamknięciem.
+
+      *Sposób użycia ( wewnątrz cząstki )&#58;*
+      
+      <pre><code>
+      <div id="outer">
+        <p>przed</p>
+        <r&#58;yield/>
+        <p>po</p>
+      </div>
+      </code></pre>
+
+      Jeśli powyższa cząstka nazwana była "czastka1", można odwołać się do niej
+      na stronach, układach stron lub innych cząstkach&#58;
+
+      <pre><code><r&#58;snippet name="czastka1">Zawartość wewnątrz</r&#58;snippet></code></pre>
+
+      Co dałoby wynikowo&#58;
+
+      <pre><code>
+      <div id="outer">
+        <p>przed</p>
+        Zawartość wewnątrz
+        <p>po</p>
+      </div>
+      </code></pre>
+
+      Gdy użyte w kontekście strony lub układu stron, @<r&#58;yield/>@ jest omijane.
+  
